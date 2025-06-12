@@ -739,3 +739,32 @@ a.fa.fa-angle-down:hover {
         height: 150px;
     }
 }
+
+.profile-image {
+    flex: 0 0 200px;
+    margin: 20px;
+    border: 3px solid #DE5E60;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    width: 200px;
+    height: 250px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(222, 94, 96, 0.6);
+}
+
+@media (max-width: 768px) {
+    .profile-image {
+        flex: 0 0 150px;
+        margin: 20px auto;
+    }
+}
