@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,8 +8,66 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 新增动画类，尽量不修改原有CSS */
+        .animated {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .animated.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skill-progress {
+            transition: width 1.5s ease;
+        }
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #2F3238;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #DE5E60;
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .bounce-down {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+    </style>
 </head>
 <body>
+    <!-- 页面加载动画 -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <!-- Menu -->
     <nav id="art-menu" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -38,89 +95,89 @@
     </nav>
 
     <!-- Home Section -->
-    <div id="home" class="text-center">
+    <div id="home" class="text-center animated">
         <div class="layer">
             <div class="content">
                 <div class="profile-container">
-                    <div class="profile-text">
+                    <div class="profile-text animated" style="animation-delay: 0.2s;">
                         <h1>Hi I'm <strong><span>Chi Iat Chau</span></strong></h1>
                         <p class="lead">Mathematics Enthusiast & Problem Solver</p>
                     </div>
                 </div>
-                <a href="#about" class="fa fa-angle-down scroll-nav"></a>
+                <a href="#about" class="fa fa-angle-down scroll-nav bounce-down" style="animation-delay: 0.6s;"></a>
             </div>
         </div>
     </div>
 
    <!-- About Section -->
-    <div id="about">
+    <div id="about" class="animated">
         <div class="container">
-            <div class="section-title center text-center">
+            <div class="section-title center text-center animated">
                 <h2><strong>ABOUT ME</strong></h2>
                 <div class="line"></div>
             </div>
             <div class="gap"></div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 animated" style="animation-delay: 0.2s;">
                     <h3 class="section-heading">Personal Information</h3>
                     <p><strong>Name:</strong> Chi Iat, Chau</p>
                     <p><strong>School:</strong> St. Joseph Diocesan College (the Fifth School) - English Section</p>
                     <p><strong>Date of Birth:</strong> October 2, 2008</p>
-                    <p><strong>Email:</strong> chauchiiat@gmail.com</p>       
+                    <p><strong>Email:</strong> chauchiiat@gmail.com</p>      
                     <h3 class="section-heading">Extracurricular Activities</h3>
-                    <div class="activity-box">
+                    <div class="activity-box animated" style="animation-delay: 0.3s;">
                         <h4>School Rope Skipping Team (2016-)</h4>
                         <p>As a dedicated member of the school's rope skipping team since 2016, I've developed exceptional teamwork skills, discipline, and physical endurance through rigorous training and competitions. Our team has earned numerous prestigious awards through synchronized performances and innovative routines, demonstrating our commitment to excellence and ability to work cohesively under pressure.</p>
                     </div>
-                    <div class="activity-box">
+                    <div class="activity-box animated" style="animation-delay: 0.4s;">
                         <h4>School Volunteer Team (2024-)</h4>
                         <p>Since joining the volunteer team in 2024, I've actively participated in various community service initiatives, including neighborhood clean-ups, educational outreach programs, and charity events. These experiences have deepened my understanding of social responsibility while enhancing my communication and leadership skills. I take pride in making a tangible difference in people's lives through service.</p>
                     </div>
-                  <div class="activity-box">
+                  <div class="activity-box animated" style="animation-delay: 0.5s;">
                         <h4>Mathematics Team (2023-)</h4>
                         <p>Since joining my school's mathematics team, i have improved and enhanced my logical thinking and cognitive abilities. I am now able to think rationally.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 animated" style="animation-delay: 0.3s;">
                     <h3 class="section-heading">About Me</h3>
                     <p>I am an enthusiastic student with a deep passion for mathematics, logic puzzles, and problem-solving. I enjoy tackling challenging problems and helping others understand complex mathematical concepts. My approach combines analytical thinking with creative solutions, and I thrive in environments that require both individual focus and team collaboration.</p>
-                    
+                   
                     <h3 class="section-heading">Skills & Activities</h3>
                     <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:85%">
+                        <div class="skill-progress progress-bar progress-bar-success" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
                             85% - Python
                         </div>
                     </div>
                     <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+                        <div class="skill-progress progress-bar progress-bar-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
                             75% - Arduino
                         </div>
                     </div>
                     <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
+                        <div class="skill-progress progress-bar progress-bar-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
                             85% - Microsoft Office Tools
                         </div>
                     </div>
                     <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+                        <div class="skill-progress progress-bar progress-bar-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:80%">
                             80% - Mathematics
                         </div>
                     </div>
-                    
+                   
                     <h3 class="section-heading">Languages</h3>
                     <ul>
                         <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                        <div class="skill-progress progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:100%">
                             100% - Cantonese
                         </div>
                     </div>
                       <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                        <div class="skill-progress progress-bar progress-bar-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:100%">
                             100% - Mandarin
                         </div>
                     </div>
                       <div class="progress progress-striped active">
-                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+                        <div class="skill-progress progress-bar progress-bar-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
                             75% - English
                         </div>
                     </div>  
@@ -130,40 +187,40 @@
         </div>
     </div>
 
-   <div class="photo-gallery-section">
+   <div class="photo-gallery-section animated">
         <div class="container">
-            <div class="section-title center text-center">
+            <div class="section-title center text-center animated">
                 <h2><strong>PHOTO GALLERY</strong></h2>
                 <div class="line"></div>
             </div>
             <div class="gap"></div>
             <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item">
+                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item animated" style="animation-delay: 0.2s;">
                     <div class="gallery-image" data-src="https://i.imgur.com/llbmgf3.png">
                         <img src="https://i.imgur.com/llbmgf3.png" alt="Mathematics Image 1" class="img-responsive gallery-img">
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item">
+                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item animated" style="animation-delay: 0.3s;">
                     <div class="gallery-image" data-src="https://i.imgur.com/AbTlGyI.png">
                         <img src="https://i.imgur.com/AbTlGyI.png" alt="Mathematics Image 2" class="img-responsive gallery-img">
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item">
+                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item animated" style="animation-delay: 0.4s;">
                     <div class="gallery-image" data-src="https://i.imgur.com/b9FuWOn.png">
                         <img src="https://i.imgur.com/b9FuWOn.png" alt="Mathematics Image 3" class="img-responsive gallery-img">
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item">
+                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item animated" style="animation-delay: 0.5s;">
                     <div class="gallery-image" data-src="https://imgur.com/BfaVKpe.png">
                         <img src="https://imgur.com/BfaVKpe.png" alt="Mathematics Image 4" class="img-responsive gallery-img">
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item">
+                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item animated" style="animation-delay: 0.6s;">
                     <div class="gallery-image" data-src="https://imgur.com/QZe9kas.png">
                         <img src="https://imgur.com/QZe9kas.png" alt="Mathematics Image 5" class="img-responsive gallery-img">
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item">
+                <div class="col-md-4 col-sm-6 col-xs-12 gallery-item animated" style="animation-delay: 0.7s;">
                     <div class="gallery-image" data-src="https://imgur.com/XrZUtiH.png">
                         <img src="https://imgur.com/XrZUtiH.png" alt="Mathematics Image 6" class="img-responsive gallery-img">
                     </div>
@@ -173,56 +230,56 @@
     </div>
 
     <!-- Awards Section -->
-    <div id="awards" class="text-center">
+    <div id="awards" class="text-center animated">
         <div class="container">
-            <div class="section-title center">
+            <div class="section-title center animated">
                 <h2>MY AWARDS</h2>
                 <div class="line"></div>
             </div>
             <div class="gap"></div>
-            
+           
             <h3 class="section-heading">Academic Awards</h3>
             <div class="row">
-                <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+                <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.2s;">
                     <div class="award-img-placeholder" style="background-image: url('https://i.imgur.com/BleP3Zm.png')" data-img="https://i.imgur.com/BleP3Zm.png" data-title="Global Mathematics Elite Competition (Macao Preliminary, Grade 9, Gold Award)"></div>
                     <p>Global Mathematics Elite Competition (Macao Preliminary, Grade 9, Gold Award)</p>
                 </div>
-                <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+                <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.3s;">
                     <div class="award-img-placeholder" style="background-image: url('https://i.imgur.com/ahZ23gf.png')" data-img="https://i.imgur.com/ahZ23gf.png" data-title="Global Mathematics Elite Competition (Macao Preliminary, Grade 9, 2nd Runner up)"></div>
                     <p>Global Mathematics Elite Competition (Macao Preliminary, Grade 9, 2nd Runner up)</p>
                 </div>
-                <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+                <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.4s;">
                     <div class="award-img-placeholder" style="background-image: url('https://i.imgur.com/mi5CD8c.png')" data-img="https://i.imgur.com/mi5CD8c.png" data-title="WMI Preliminary Round (2023), (Grade 9)"></div>
                     <p>WMI Preliminary Round (2023), (Grade 9)</p>
                 </div>
-                <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+                <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.5s;">
                     <div class="award-img-placeholder" style="background-image: url('https://i.imgur.com/F8ZePiT.png')" data-img="https://i.imgur.com/F8ZePiT.png" data-title="Global Mathematics Elite Competition (Macao Preliminary, Grade 9, Maths Olympiad, Silver Award)"></div>
                     <p>Global Mathematics Elite Competition (Macao Preliminary, Grade 9, Maths Olympiad, Silver Award)</p>
                 </div>
-                <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+                <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.6s;">
                     <div class="award-img-placeholder" style="background-image: url('https://i.imgur.com/oQSsdPU.png')" data-img="https://i.imgur.com/oQSsdPU.png" data-title="Award for Academic Achievement, (23/24), Third Prize"></div>
                     <p>Award for Academic Achievement, (23/24), Third Prize</p>
                 </div>
-                <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+                <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.7s;">
                     <div class="award-img-placeholder" style="background-image: url('https://i.imgur.com/dlgo5rU.png')" data-img="https://i.imgur.com/dlgo5rU.png" data-title="China Mathematics Education Research Association Maths Competition, Grade 9, Third prize"></div>
                     <p>China Mathematics Education Research Association Maths Competition, Grade 9, Third prize</p>
                 </div>
-                <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+                <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.8s;">
                     <div class="award-img-placeholder" style="background-image: url('https://i.imgur.com/JM9MYBJ.png')" data-img="https://i.imgur.com/JM9MYBJ.png" data-title="Grade 10, Singapore Maths Challenge 2024"></div>
                     <p>Grade 10, Singapore Maths Challenge 2024</p>
                 </div>
-                <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+                <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.9s;">
                     <div class="award-img-placeholder" style="background-image: url('https://i.imgur.com/tdxNcLO.png')" data-img="https://i.imgur.com/tdxNcLO.png" data-title="IMEC Maths Olympiad (2024)"></div>
                     <p>IMEC Maths Olympiad (2024)</p>
                 </div>
             </div>
           <h3 class="section-heading">Sports Awards</h3>
         <div class="row">
-            <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+            <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.2s;">
                 <div class="award-img-placeholder" style="background-image: url('https://imgur.com/UVORKSC.png')" data-img="https://imgur.com/UVORKSC.png" data-title="Lanchow National Rope-Skipping Invitation Competition (2025)"></div>
                 <p>Lanchow National Rope-Skipping Invitation Competition (2025)</p>
             </div>
-            <div class="col-md-3 col-sm-4 col-xs-6 award-item">
+            <div class="col-md-3 col-sm-4 col-xs-6 award-item animated" style="animation-delay: 0.3s;">
                 <div class="award-img-placeholder" style="background-image: url('https://imgur.com/kyW5TWT.png')" data-img="https://imgur.com/kyW5TWT.png" data-title="Jumpy Inter-school Double Dutch Championship 2025"></div>
                 <p>Jumpy Inter-school Double Dutch Championship 2025</p>
             </div>
@@ -233,37 +290,37 @@
     </div>
 
     <!-- Certificates Section -->
-    <div id="certificates" class="text-center">
+    <div id="certificates" class="text-center animated">
         <div class="container">
-            <div class="section-title center">
+            <div class="section-title center animated">
                 <h2>MY CERTIFICATES</h2>
                 <div class="line"></div>
             </div>
             <div class="gap"></div>
-            
+           
             <h3 class="section-heading">Academic Certificates</h3>
             <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item">
+                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item animated" style="animation-delay: 0.2s;">
                     <div class="certificate-img-placeholder" style="background-image: url('https://i.imgur.com/lvvKJSo.png')" data-img="https://i.imgur.com/lvvKJSo.png" data-title="Microsoft Office Specialist (2019 version), Word 2019 Expert"></div>
                     <p>Microsoft Office Specialist (2019 version), Word 2019 Expert</p>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item">
+                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item animated" style="animation-delay: 0.3s;">
                     <div class="certificate-img-placeholder" style="background-image: url('https://i.imgur.com/OvjyJXj.png')" data-img="https://i.imgur.com/OvjyJXj.png" data-title="Microsoft Office Specialist (2019 version), Excel Associate"></div>
                     <p>Microsoft Office Specialist (2019 version), Excel Associate</p>
                 </div>
             </div>
-            
+           
             <h3 class="section-heading">Volunteering Certificates</h3>
             <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item">
+                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item animated" style="animation-delay: 0.4s;">
                     <div class="certificate-img-placeholder" style="background-image: url('https://i.imgur.com/xGXZ73O.png')" data-img="https://i.imgur.com/xGXZ73O.png" data-title="Dom Bosco Juvenile Services Volunteering (2024), 2.5 hours"></div>
                     <p>Dom Bosco Juvenile Services Volunteering (2024), 2.5 hours</p>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item">
+                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item animated" style="animation-delay: 0.5s;">
                     <div class="certificate-img-placeholder" style="background-image: url('https://i.imgur.com/06KnkwI.png')" data-img="https://i.imgur.com/06KnkwI.png" data-title="Macao Ministry of Education Volunteering Classes, 12 hours"></div>
                     <p>Macao Ministry of Education Volunteering Classes, 12 hours</p>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item">
+                <div class="col-md-4 col-sm-6 col-xs-6 certificate-item animated" style="animation-delay: 0.6s;">
                     <div class="certificate-img-placeholder" style="background-image: url('https://i.imgur.com/LgWZF9d.png')" data-img="https://i.imgur.com/LgWZF9d.png" data-title="World Vision Charity Fasting (2025)"></div>
                     <p>World Vision Charity Fasting (2025)</p>
                 </div>
@@ -272,23 +329,23 @@
     </div>
 
     <!-- Projects Section -->
-    <div id="projects" class="text-center">
+    <div id="projects" class="text-center animated">
         <div class="container">
-            <div class="section-title center">
+            <div class="section-title center animated">
                 <h2>MY PROJECTS</h2>
                 <div class="line"></div>
             </div>
             <div class="gap"></div>
-            
+           
             <div class="row">
-                <div class="col-md-6 project-item">
+                <div class="col-md-6 project-item animated" style="animation-delay: 0.2s;">
                     <div class="project-inner">
                         <div class="project-img-placeholder" style="background-image: url('https://i.imgur.com/Y9WzYzc.png')" data-img="https://i.imgur.com/Y9WzYzc.png" data-title="Biology Group project (Low Carbon City)"></div>
                         <h4>Biology Group Project (Low Carbon City)</h4>
                         <p>Collaborated with classmates to research and present innovative solutions for creating sustainable, low-carbon urban environments. This comprehensive project involved analyzing current carbon footprints, proposing green infrastructure improvements, and developing community engagement strategies. Our work earned recognition for its thorough research and practical recommendations.</p>
                     </div>
                 </div>
-                <div class="col-md-6 project-item">
+                <div class="col-md-6 project-item animated" style="animation-delay: 0.3s;">
                     <div class="project-inner">
                         <div class="project-img-placeholder" style="background-image: url('https://i.imgur.com/OcW48rN.png')" data-img="https://i.imgur.com/OcW48rN.png" data-title="ICT Group project (Carousel)"></div>
                         <h4>ICT Group Project (Carousel)</h4>
@@ -300,15 +357,15 @@
     </div>
 
     <!-- Contact Section -->
-    <div id="contact" class="text-center">
+    <div id="contact" class="text-center animated">
         <div class="container">
-            <div class="section-title center">
+            <div class="section-title center animated">
                 <h2>GET IN TOUCH</h2>
                 <div class="line"></div>
             </div>
             <div class="gap"></div>
-            <div class="address">Feel free to contact me for any inquiries or opportunities.</div>
-            <div id="contact-form">
+            <div class="address animated">Feel free to contact me for any inquiries or opportunities.</div>
+            <div id="contact-form" class="animated">
                 <div id="message"></div>
                 <form method="post" name="contactform" id="contactform">
                     <input name="name" type="text" id="name" class="inputForm2" placeholder="Name">
@@ -328,7 +385,7 @@
     </div>
 
     <!-- Footer -->
-    <footer id="footer">
+    <footer id="footer" class="animated">
         <div class="footer-top">
             <div class="container text-center">
                 <div class="footer-logo">
@@ -347,9 +404,3 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
