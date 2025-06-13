@@ -222,7 +222,6 @@ ul, ol {
     display: block;
 }
 
-/* About Section */
 #about {
     padding: 80px 0;
     background: #2F3238;
@@ -282,7 +281,6 @@ ul, ol {
     margin-top: 0;
 }
 
-/* Awards Section */
 #awards {
     padding: 80px 0;
     background: #26292E;
@@ -358,19 +356,16 @@ ul, ol {
     color: #fff;
 }
 
-/* Certificates Section */
 #certificates {
     padding: 80px 0;
     background: #2F3238;
 }
 
-/* Projects Section */
 #projects {
     padding: 80px 0;
     background: #26292E;
 }
 
-/* Contact Section */
 #contact {
     padding: 90px 0;
     background: #2F3238;
@@ -505,7 +500,6 @@ input[type=email]:focus {
     color: #fff;
 }
 
-/* Footer Section */
 #footer {
     color: #fff;
     background: #26292E;
@@ -547,7 +541,6 @@ input[type=email]:focus {
     font-size: 16px;
 }
 
-/* Photo Gallery Section */
 .photo-gallery-section {
     padding: 80px 0;
     background: #26292E;
@@ -600,7 +593,6 @@ input[type=email]:focus {
     opacity: 0.8;
 }
 
-/* Photo Gallery Text Overlay */
 .gallery-text {
     position: absolute;
     bottom: 0;
@@ -629,7 +621,6 @@ input[type=email]:focus {
     font-size: 14px;
 }
 
-/* Modal Styles */
 #imageModal {
     display: none;
     position: fixed;
@@ -680,14 +671,12 @@ input[type=email]:focus {
     cursor: pointer;
 }
 
-/* Responsive */
 @media only screen and (max-width: 700px) {
     .modal-content {
         width: 100%;
     }
 }
 
-/* Scroll Down Button */
 a.fa.fa-angle-down {
     padding: 10px 15px;
     color: #fff;
