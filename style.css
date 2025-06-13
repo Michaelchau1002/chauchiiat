@@ -63,7 +63,7 @@ p.lead {
     font-family: 'Open Sans', sans-serif;
 }
 
-a { 
+a {
     color: #fff;
 }
 
@@ -332,7 +332,7 @@ ul, ol {
     transition: all 0.3s ease;
 }
 
-.award-item:hover p, 
+.award-item:hover p,
 .certificate-item:hover p {
     background: #DE5E60;
     color: #fff;
@@ -392,7 +392,7 @@ ul, ol {
     float: none;
 }
 
-#contact #contact-form input[type="text"], 
+#contact #contact-form input[type="text"],
 #contact #contact-form textarea {
     color: #7F8289;
     font-size: 12px;
@@ -421,7 +421,7 @@ ul, ol {
     float: left;
 }
 
-#contact-form input[type="text"], 
+#contact-form input[type="text"],
 #contact-form textarea {
     color: #7F8289;
     font-size: 12px;
@@ -435,8 +435,8 @@ ul, ol {
     border: 1px solid #26292E;
 }
 
-#contact-form input[type=text]:focus, 
-#contact-form textarea:focus, 
+#contact-form input[type=text]:focus,
+#contact-form textarea:focus,
 input[type=email]:focus {
     color: #fff;
     outline: none;
@@ -453,7 +453,7 @@ input[type=email]:focus {
     margin-bottom: 30px;
 }
 
-#contact-form input[type="submit"], 
+#contact-form input[type="submit"],
 .controls button {
     background: none;
     border: none;
@@ -468,7 +468,7 @@ input[type=email]:focus {
     background: #26292E;
 }
 
-#contact-form input[type="submit"]:hover, 
+#contact-form input[type="submit"]:hover,
 .controls button {
     background: #DE5E60;
 }
@@ -717,24 +717,24 @@ a.fa.fa-angle-down:hover {
     .content {
         padding: 25% 0 0;
     }
-    
+   
     .profile-container {
         flex-direction: column;
     }
-    
+   
     .profile-text {
         flex: 1 1 100%;
         text-align: center;
     }
-    
+   
     .award-item, .certificate-item {
         margin-bottom: 20px;
     }
-    
+   
     .award-img-placeholder, .certificate-img-placeholder {
         height: 120px;
     }
-    
+   
     .project-img-placeholder {
         height: 150px;
     }
